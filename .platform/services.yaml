@@ -4,8 +4,21 @@
 # to power your Platform.sh project.
 
 mysqldb:
-    type: mysql:10.2
+    type: "mysql:10.2"
     disk: 2048
+    configuration:
+        schemas:
+            - chapter.cloud
+            - alamopmi.org
+        endpoints:
+            chapter.cloud:
+                default_schema: chapter.cloud
+                privileges:
+                    firstdb: admin
+            alamopmi.org:
+                default_schema: alamopmi.org
+                privileges:
+                    seconddb: admin
 #
 #rediscache:
 #    type: redis:3.2
