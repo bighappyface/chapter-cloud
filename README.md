@@ -1,7 +1,9 @@
 # Drupal project template for Platform.sh
 
-This project provides a starter kit for Drupal 8 projects hosted on [Platform.sh](http://platform.sh). It
+This project provides a starter kit for Drupal 8 multisite projects hosted on [Platform.sh](http://platform.sh). It
 is very closely based on the [Drupal Composer project](https://github.com/drupal-composer/drupal-project).
+
+It differs slightly from the standard [Drupal 8 project template](https://github.com/platformsh/platformsh-example-drupal8), in that it is setup for 2 multi-site instances, named `first` and `second`, both of which are setup to be subdomains of the same parent domain.  It can be used directly or as a reference for modifying your own project.
 
 ## Starting a new project
 
@@ -17,23 +19,15 @@ To start a new Drupal 8 project on Platform.sh, you have 2 options:
 
 ## Using as a reference
 
-You can also use this repository as a reference for your own Drupal projects, and borrow whatever code is needed.  The most important parts are the [`.platform.app.yaml`](/.platform.app.yaml) file and the [`.platform`](/.platform) directory.
-
-Also see:
-
-* [`settings.php`](/web/sites/default/settings.php) - The customized `settings.php` file works for both Platform.sh and local development, setting only those values that are needed in both.  You can add additional values as documented in `default.settings.php` as desired.
-* [`settings.platformsh.php`](/web/sites/default/settings.platformsh.php) - This file contains Platform.sh-specific code to map environment variables into Drupal configuration.  You can add to it as needed.  See [the documentation](https://docs.platform.sh/frameworks/drupal8.html) for more examples of common snippets to include here.
-* [`scripts/platformsh`](/scripts/platformsh) - This directory contains our update script to keep this repository in sync with the Drupal Composer project.  It may be safely ignored or removed.
+You can also use this repository as a reference for your own Drupal projects, and
+borrow whatever code is needed.  The most important parts are the `.platform.app.yaml` file,
+the `.platform` directory, and the changes made to `settings.php`.
 
 ## Managing a Drupal site built with Composer
 
-Nothing is easier than managing a Composer-based Drupal site on Platform.sh. See [Drupal 8 and Composer](https://docs.platform.sh/frameworks/drupal8.html) for details. For example adding a single module to your Drupal installation is as simple as:
-
-```sh
-composer require drupal/devel
-git commit -am 'Add the Devel module'
-git push
-```
+Once the site is installed, there is no difference between a site hosted on Platform.sh
+and a site hosted anywhere else.  It's just Composer.  See the [Drupal documentation](https://www.drupal.org/node/2404989)
+for tips on how best to leverage Composer with Drupal 8.
 
 ## How does this starter kit differ from vanilla Drupal from Drupal.org?
 

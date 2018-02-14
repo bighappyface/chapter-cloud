@@ -75,9 +75,18 @@ class Platformify {
    *
    * Never apply a patch here that is not already submitted upstream on
    * Drupal.org.
+   *
+   * @todo Stub this out to a no-op once those patches are committed upstream
+   * and included in a stable patch release.
    */
   protected static function addPatches() {
-    // No patches are currently required.
+    static::updateComposerJson(function (array $composer) {
+      $composer['extra']['patches']['drupal/core'] = [
+        "Redirect to install.php on empty DB" => "https://www.drupal.org/files/issues/728702-163.patch",
+      ];
+
+      return $composer;
+    });
   }
 
   /**

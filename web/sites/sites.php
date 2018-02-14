@@ -53,3 +53,20 @@
  * @see \Drupal\Core\DrupalKernel::getSitePath()
  * @see https://www.drupal.org/documentation/install/multi-site
  */
+
+if (!empty($_ENV['PLATFORM_ROUTES'])) {
+  $routes = json_decode(base64_decode($_ENV['PLATFORM_ROUTES']), TRUE);
+  //print_r($routes);
+
+  $sites = [];
+  foreach ($routes as $url => $route) {
+    $host = parse_url($url, PHP_URL_HOST);
+    if ($host !== FALSE && $route['type'] == 'upstream' && $route['upstream'] == $_ENV['PLATFORM_APPLICATION_NAME']) {
+      $subdomain = substr($host, 0, strpos($host,'---'));
+      $sites[$host] = $subdomain;
+    }
+  }
+}
+
+//print_r($sites);
+
