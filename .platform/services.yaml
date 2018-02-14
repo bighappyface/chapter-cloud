@@ -8,15 +8,15 @@ mysqldb:
     disk: 2048
     configuration:
         schemas:
-            - chapter.cloud
-            - alamopmi.org
+            - chaptercloud
+            - alamopmiorg
         endpoints:
-            chapter.cloud:
-                default_schema: chapter.cloud
+            chaptercloud:
+                default_schema: chaptercloud
                 privileges:
                     firstdb: admin
-            alamopmi.org:
-                default_schema: alamopmi.org
+            alamopmiorg:
+                default_schema: alamopmiorg
                 privileges:
                     seconddb: admin
 #
