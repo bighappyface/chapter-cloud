@@ -15,7 +15,8 @@ type: 'php:7.1'
 # to the application in the PLATFORM_RELATIONSHIPS variable. The right-hand
 # side is in the form `<service name>:<endpoint name>`.
 relationships:
-    database: 'mysqldb:mysql'
+    chaptercloud: 'mysqldb:chaptercloud'
+    alamopmiorg: 'mysqldb:alamopmiorg'
 #    solr: 'solrsearch:solr'
 #    redis: 'rediscache:redis'
 
