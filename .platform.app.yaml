@@ -26,9 +26,9 @@ disk: 2048
 # directory paths, relative to the application root. The values are strings such as
 # 'shared:files/PATH', where PATH is a relative path under the mount's source directory.
 mounts:
-    '/web/sites/default/files': 'shared:files/files'
-    '/web/sites/chaptercloud/files': 'shared:files/files'
-    '/web/sites/alamopmiorg/files': 'shared:files/files'
+    '/web/sites/default/files': 'shared:files/default/files'
+    '/web/sites/chaptercloud/files': 'shared:files/chaptercloud/files'
+    '/web/sites/alamopmiorg/files': 'shared:files/alamopmiorg/files'
     '/tmp': 'shared:files/tmp'
     '/private': 'shared:files/private'
     '/.drush': 'shared:files/.drush'
