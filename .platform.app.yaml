@@ -27,6 +27,8 @@ disk: 2048
 # 'shared:files/PATH', where PATH is a relative path under the mount's source directory.
 mounts:
     '/web/sites/default/files': 'shared:files/files'
+    '/web/sites/chaptercloud/files': 'shared:files/files'
+    '/web/sites/alamopmiorg/files': 'shared:files/files'
     '/tmp': 'shared:files/tmp'
     '/private': 'shared:files/private'
     '/.drush': 'shared:files/.drush'
@@ -103,6 +105,36 @@ web:
             rules:
                 # Provide a longer TTL (2 weeks) for aggregated CSS and JS files.
                 '^/sites/default/files/(css|js)':
+                    expires: 2w
+
+        '/sites/chaptercloud/files':
+            # Allow access to all files in the public files directory.
+            allow: true
+            expires: 5m
+            passthru: '/index.php'
+            root: 'web/sites/chaptercloud/files'
+
+            # Do not execute PHP scripts.
+            scripts: false
+
+            rules:
+                # Provide a longer TTL (2 weeks) for aggregated CSS and JS files.
+                '^/sites/chaptercloud/files/(css|js)':
+                    expires: 2w
+
+        '/sites/alamopmiorg/files':
+            # Allow access to all files in the public files directory.
+            allow: true
+            expires: 5m
+            passthru: '/index.php'
+            root: 'web/sites/alamopmiorg/files'
+
+            # Do not execute PHP scripts.
+            scripts: false
+
+            rules:
+                # Provide a longer TTL (2 weeks) for aggregated CSS and JS files.
+                '^/sites/alamopmiorg/files/(css|js)':
                     expires: 2w
 
 # The configuration of scheduled execution.
