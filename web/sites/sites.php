@@ -62,11 +62,9 @@ if (!empty($_ENV['PLATFORM_ROUTES'])) {
   foreach ($routes as $url => $route) {
     $host = parse_url($url, PHP_URL_HOST);
     if ($host !== FALSE && $route['type'] == 'upstream' && $route['upstream'] == $_ENV['PLATFORM_APPLICATION_NAME']) {
-      $subdomain = substr($host, 0, strpos($host,'---'));
-      $sites[$host] = $subdomain;
+      $sites[$host] = str_replace('.', '', $host);
     }
   }
 }
 
 //print_r($sites);
-
