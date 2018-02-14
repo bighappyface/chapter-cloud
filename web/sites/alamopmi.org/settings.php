@@ -34,7 +34,7 @@ $config_directories[CONFIG_SYNC_DIRECTORY] = '../config/sync';
 
 // Automatic Platform.sh settings.
 if (file_exists($app_root . '/' . $site_path . '/../settings.platformsh.php')) {
-  $platformsh_subsite_id = 'second';
+  $platformsh_subsite_id = 'alamopmi.org';
   include $app_root . '/' . $site_path . '/../settings.platformsh.php';
 }
 
