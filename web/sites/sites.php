@@ -67,4 +67,5 @@ if (!empty($_ENV['PLATFORM_ROUTES'])) {
   }
 }
 
-//print_r($sites);
+// Subdomains for convenience.
+$sites['apmi.chapter.cloud'] = 'alamopmiorg';
