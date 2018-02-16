@@ -12,7 +12,7 @@
       # Base the cache on the session cookie. Ignore all other cookies.
       cookies: ['/^SS?ESS/']
 
-"https://*.{default}/":
+"https://apmi.{default}/":
     type: upstream
     upstream: "app:http"
     cache:
