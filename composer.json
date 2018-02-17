@@ -24,13 +24,7 @@
         "drupal/console": "~1.0"
     },
     "require-dev": {
-        "behat/mink": "~1.7",
-        "behat/mink-goutte-driver": "~1.2",
-        "jcalderonzumba/gastonjs": "~1.0.2",
-        "jcalderonzumba/mink-phantomjs-driver": "~0.3.1",
-        "mikey179/vfsStream": "~1.2",
-        "phpunit/phpunit": "~4.8",
-        "symfony/css-selector": "~2.8"
+        "drupal/drupal-extension": "~3.0"
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
@@ -40,7 +34,6 @@
         ]
     },
     "scripts": {
-        "drupal-scaffold": "DrupalComposer\\DrupalScaffold\\Plugin::scaffold",
         "pre-install-cmd": [
             "DrupalProject\\composer\\ScriptHandler::checkComposerVersion"
         ],
@@ -48,13 +41,24 @@
             "DrupalProject\\composer\\ScriptHandler::checkComposerVersion"
         ],
         "post-install-cmd": [
+            "DrupalComposer\\DrupalScaffold\\Plugin::scaffold",
             "DrupalProject\\composer\\ScriptHandler::createRequiredFiles"
         ],
         "post-update-cmd": [
+            "DrupalComposer\\DrupalScaffold\\Plugin::scaffold",
             "DrupalProject\\composer\\ScriptHandler::createRequiredFiles"
         ]
     },
     "extra": {
+        "drupal-scaffold": {
+            "excludes": [
+                "robots.txt",
+                "sites/development.services.yml",
+                "sites/example.settings.local.php",
+                "sites/example.sites.php",
+                "web.config"
+            ]
+        },
         "installer-paths": {
             "web/core": [
                 "type:drupal-core"
@@ -75,5 +79,8 @@
     },
     "replace": {
         "drupal/drupal": "*"
+    },
+    "config": {
+      "bin-dir": "bin/"
     }
 }
