@@ -20,6 +20,11 @@ config:
   # Specify the version to match what's in services.yaml.
   database: mariadb:10.1
 
+  # Proxy away from 80 and 443
+  proxy: ON
+  proxyHttpPort: 8080
+  proxyHttpsPort: 4443
+
 # The following additional build step will install the Platform CLI
 # in the application container and auto-run `composer install`
 services:
